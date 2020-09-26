@@ -33,6 +33,53 @@ class Saved extends Component {
   render() {
     return (
       // YOUR CODE HERE
+      <div>
+      <Container>
+          <Row>
+              <Col size="xs-12">
+              <Jumbotron>
+              <h1 className="text-center">
+                <strong>Google Books Search</strong>
+              </h1>
+              <h2 className="text-center">Search and Save Books .</h2>
+            </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card title="Results" icon="fa fa-bookmark">
+              {state.books.length ? (
+                <List>
+                  {state.books.map(book => (
+                    <Book
+                      key={book._id}
+                      title={book.title}
+                      subtitle={book.subtitle}
+                      link={book.link}
+                     
+                      authors={book.authors}
+                      description={book.description}
+                      image={book.image}
+                      Button={() => (
+                        <button
+                          onClick={() => handleBookDelete(book._id)}
+                          className="btn btn-primary ml-2"
+                        >
+                          Delete
+                        </button>
+                      )}
+                    />
+                  ))}
+                </List>
+              ) : (
+                <h2 className="text-center">There is no saved books! Search Books!</h2>
+              )}
+            </Card>
+              </Col>
+          </Row>
+          <Footer/>
+      </Container>
+  </div>
     );
   }
 }
