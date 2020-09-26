@@ -47,4 +47,4 @@ Repository   https://github.com/hema0618/Google-Books
 
 ## Deployed Link
 
-https://git.heroku.com/google-books18.git
+https://google-books18.herokuapp.com/
