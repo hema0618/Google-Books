@@ -43,3 +43,8 @@ You need PC, laptop or smartphone with Mozilla,Edge or Safari browser to visit t
 ## Contact
 Hema - khemalatha507@gmail.com
 
+Repository   https://github.com/hema0618/Google-Books
+
+## Deployed Link
+
+https://git.heroku.com/google-books18.git
