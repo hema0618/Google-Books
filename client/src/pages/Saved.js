@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Book from "../components/Book";
@@ -7,30 +7,31 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
-class Saved extends Component {
-  state = {
+function Saved() {
+  const [state, setState] = useState({
     books: []
-  };
+  });
 
-  componentDidMount() {
-    this.getSavedBooks();
-  }
+  useEffect(() => {
+    getSavedBooks();
+  },[])
 
-  getSavedBooks = () => {
+  const getSavedBooks = () => {
     API.getSavedBooks()
-      .then(res =>
-        this.setState({
+      .then(res => {
+        setState({
+          ...state,
           books: res.data
-        })
-      )
+        });
+        console.log(res.data);
+      })
       .catch(err => console.log(err));
   };
 
-  handleBookDelete = id => {
-    API.deleteBook(id).then(res => this.getSavedBooks());
+  const handleBookDelete = id => {
+    API.deleteBook(id).then(res => getSavedBooks());
   };
-
-  render() {
+  
     return (
       // YOUR CODE HERE
       <div>
@@ -82,6 +83,6 @@ class Saved extends Component {
   </div>
     );
   }
-}
+
 
 export default Saved;

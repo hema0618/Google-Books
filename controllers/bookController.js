@@ -39,5 +39,5 @@ module.exports = {
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(404).json(err));
   }
-  }
+  
 };
